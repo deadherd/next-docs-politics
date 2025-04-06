@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import { Navbar } from "@/components/navbar";
-import { Space_Mono, Space_Grotesk } from "next/font/google";
+import { Space_Mono, DM_Sans, Bitter } from "next/font/google";
 import { Footer } from "@/components/footer";
 import "@/styles/globals.css";
 
-const sansFont = Space_Grotesk({
+const titleFont = Bitter({
+  subsets: ["latin"],
+  variable: "--font-arvo-sans",
+  display: "swap",
+  weight: "400",
+});
+
+const sansFont = DM_Sans({
   subsets: ["latin"],
   variable: "--font-geist-sans",
   display: "swap",
@@ -20,10 +27,10 @@ const monoFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AriaDocs - Template",
-  metadataBase: new URL("https://ariadocs.vercel.app/"),
+  title: "Democratic Rationalists ★ DRI͙P",
+  metadataBase: new URL("https://drip.vote/"),
   description:
-    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
+    "Rationals fight for a world where everyone eats. We refuse to accept a rotten system.",
 };
 
 export default function RootLayout({
@@ -41,7 +48,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sansFont.variable} ${monoFont.variable} font-regular antialiased tracking-wide`}
+        className={`${sansFont.variable} ${monoFont.variable} ${titleFont.variable} font-regular antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider

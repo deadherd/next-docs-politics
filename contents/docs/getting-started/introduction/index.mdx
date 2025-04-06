@@ -1,58 +1,49 @@
 ---
-title: Introduction
-description: This section provides an overview of AriaDocs.
+title: Getting Started with Algolia DocSearch
+description: Learn how to integrate Algolia DocSearch into your documentation.
 ---
 
-Welcome to **AriaDocs**! This template provides a modern, flexible, and user-friendly foundation for creating engaging documentation. Whether you're building a knowledge base, project docs, or a personal blog, AriaDocs makes it easy to set up and scale.
+[Algolia DocSearch](https://docsearch.algolia.com/) provides a fast, relevant search experience for documentation sites. It powers the search in this project (**Ariadocs**). Follow this guide to integrate it into your documentation.
 
 
-##  Open Source Philosophy
+## Apply for DocSearch
 
-AriaDocs is proudly **open-source**! 🎉 We believe in creating an accessible, collaborative platform that thrives on community contributions.
+Algolia provides **DocSearch** for open-source projects for free. To apply:
 
-<Note title="Contribute"> 
- Interested in helping us improve? Check out our [GitHub repository](https://github.com/your-repo) to get started! From feature suggestions to bug fixes, all contributions are welcome.
-</Note>
-
-## Project Overview
-
-**AriaDocs** is more than just a documentation template. It's a **complete toolkit** designed for modern web development. Key features include:
-
-- **Markdown & MDX Support:** Easily write documentation in Markdown, with the option to include interactive components via MDX.
-- **Customizable Themes:** Designed with a minimalist ShadCN-inspired theme that’s easy to style.
-- **SEO-Optimized:** Each page is SEO-ready, ensuring search engines can find and rank your content.
-- **Interactive Code Blocks:** Beautifully styled, language-specific code blocks for an enhanced reading experience.
-
-### Key Features
-
-| **Feature**                   | **Description**                                          |
-|-------------------------------|----------------------------------------------------------|
-| MDX Support                   | Write interactive documentation with MDX.                |
-| Nested Pages                  | Organize content in a nested, hierarchical structure.    |
-| Blog Section                  | Include a dedicated blog section.                        |
-| Pagination                    | Split content across multiple pages.                     |
-| Syntax Highlighting           | Highlight code for better readability.                   |
-| Code Line Highlighting & Titles | Highlight specific lines with descriptive titles.      |
-| Interactive Code Blocks       | Language-specific and interactive code display.          |
-| Custom Markdown Components             | Embed custom, reusable components in your docs.          |
-| Static Site Generation        | Generate a static, high-performance site.                |
-| SEO-Optimized                 | Structured for optimal search engine indexing.           |
+1. Visit the [DocSearch Application](https://docsearch.algolia.com/apply/).
+2. Fill out the form with details about your documentation:
+   - **Your website URL**
+   - **The selectors for headings and content**
+   - **Your GitHub repository link** (if applicable)
+3. Submit your request. Once approved, Algolia will provide:
+   - **Application ID**
+   - **Search API Key**
+   - **Index Name**
 
 
-## Technology & Libraries
+##  Install DocSearch in Your Project
 
-AriaDocs leverages cutting-edge technologies to ensure performance and flexibility:
+To integrate DocSearch, install the required package:
 
-- **Next.js 14** - The powerful React framework optimized for production.
-- **Tailwind CSS** - Utility-first styling for quick, clean designs.
-- **Shadcn-UI** - Elegant, accessible components for a polished look.
-- **next-mdx-remote** - Enables MDX support for dynamic, interactive Markdown content.
+```sh
+npm install @docsearch/react@3
+```
 
+## Create a Search Component
+In your React project, create a Search Component using `@docsearch/react`:
 
-## Deploy on Vercel
+```jsx
+// src/components/Search.js
+import { DocSearch } from '@docsearch/react';
+import '@docsearch/css';
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-You can deploy your project by clicking [Deploy with Vercel](https://vercel.com/new/clone?repository-url=https://github.com/nisabmohd/Aria-Docs)
+export function Search() {
+  return (
+    <DocSearch
+      appId="YOUR_APP_ID"
+      indexName="YOUR_INDEX_NAME"
+      apiKey="YOUR_SEARCH_API_KEY"
+    />
+  );
+}
+```

@@ -26,6 +26,12 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        dark: "#1a1a1a",
+        light: "#f2f2f2",
+        dindigo: "#282882",
+        dpurple: "#6615f7",
+        dred: "#c1272d",
+        dgold: "#f1d208",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -63,6 +69,7 @@ const config = {
       fontFamily: {
         code: ["var(--font-geist-mono)"],
         regular: ["var(--font-geist-sans)"],
+        title: ["var(--font-arvo-sans)"],
       },
       keyframes: {
         "accordion-down": {
